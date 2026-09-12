@@ -1,0 +1,507 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:#2d2d2d;
+}
+
+canvas{
+    display:block;
+}
+
+canvas {
+    touch-action: none;
+}
+
+#deviceSelection {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(20, 55, 55, 0.82),
+            rgba(10, 35, 45, 0.92)
+        );
+
+    z-index: 1000;
+}
+
+.deviceBox {
+    width: min(850px, 90%);
+    padding: 45px 55px;
+
+    text-align: center;
+
+    background: #e8d7ad;
+
+    border: 6px solid #173b43;
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 0 #0d292f,
+        0 18px 30px rgba(0,0,0,0.5);
+}
+
+.deviceBox h1 {
+    margin-bottom: 18px;
+
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+
+    color: #173b43;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        2px 2px 0 #b7a47b;
+}
+
+.deviceBox h2 {
+    margin-bottom: 35px;
+
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+
+    color: #315c4a;
+}
+
+.deviceButtons {
+    display: flex;
+    justify-content: center;
+
+    gap: 25px;
+}
+
+
+.deviceButtons button {
+
+    width: 270px;
+    height: 145px;
+
+    border: 5px solid #173b43;
+    border-radius: 12px;
+
+    background: #f7f0d9;
+
+    color: #173b43;
+
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0 #315c4a;
+
+    transition:
+        transform 0.1s,
+        box-shadow 0.1s,
+        background 0.1s;
+
+}
+
+.deviceButtons button:hover {
+
+    background: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 0 #315c4a;
+
+}
+
+.deviceButtons button:active {
+
+    transform: translateY(5px);
+
+    box-shadow:
+        0 2px 0 #315c4a;
+
+}
+
+#mobileControls {
+    display: none;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+
+    padding: 0 20px;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    z-index: 500;
+
+    pointer-events: none;
+}
+
+#mobileControls button {
+    width: 65px;
+    height: 65px;
+
+    border: 3px solid white;
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    font-size: 27px;
+    font-weight: bold;
+
+    pointer-events: auto;
+
+    touch-action: none;
+    user-select: none;
+}
+
+.movementButtons,
+.actionButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.ai-credit{
+    position:fixed;
+    top:10px;
+    right:15px;
+
+    padding:7px 12px;
+
+    background:rgba(0, 40, 50, 0.75);
+    color:#EAF7FC;
+
+    border:1px solid #0E9FB3;
+    border-radius:8px;
+
+    font-family:Arial, sans-serif;
+    font-size:11px;
+
+    z-index:1000;
+}
+
+#computerInstructions{
+
+    position:fixed;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            rgba(20,55,55,0.82),
+            rgba(10,35,45,0.94)
+        );
+
+    z-index:1100;
+}
+
+.instructionsBox{
+
+    width:min(850px, 90%);
+
+    padding:40px 50px;
+
+    text-align:center;
+
+    background:#e8d7ad;
+
+    border:6px solid #173b43;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 10px 0 #0d292f,
+        0 18px 30px rgba(0,0,0,0.5);
+}
+
+.instructionsBox h1{
+
+    margin-bottom:10px;
+
+    font-family:Arial, sans-serif;
+
+    font-size:38px;
+
+    font-weight:900;
+
+    color:#173b43;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        2px 2px 0 #b7a47b;
+}
+
+
+.instructionsSubtitle{
+
+    margin-bottom:30px;
+
+    font-family:Arial, sans-serif;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:#315c4a;
+}
+
+.controlsList{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+    margin-bottom:32px;
+}
+
+
+.control{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    min-height:72px;
+
+    padding:10px 15px;
+
+    background:#f7f0d9;
+
+    border:3px solid #173b43;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 4px 0 #315c4a;
+
+    text-align:left;
+}
+
+.key{
+
+    min-width:55px;
+    height:50px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:0 10px;
+
+    background:#ffffff;
+
+    border:3px solid #173b43;
+
+    border-radius:9px;
+
+    color:#173b43;
+
+    font-family:Arial, sans-serif;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 4px 0 #315c4a;
+
+    flex-shrink:0;
+}
+
+
+.keyWide{
+
+    min-width:110px;
+
+    font-size:16px;
+}
+
+
+.mouseKey{
+
+    font-size:25px;
+
+    background:#d98b62;
+
+    color:white;
+
+    border-color:#572f2a;
+
+    box-shadow:
+        0 4px 0 #572f2a;
+}
+
+.controlText{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    color:#173b43;
+
+    font-family:Arial, sans-serif;
+
+    font-size:15px;
+}
+
+
+.controlText strong{
+
+    font-size:16px;
+}
+
+
+.controlText span{
+
+    color:#555;
+
+    font-size:13px;
+}
+
+#startComputerButton{
+
+    width:250px;
+
+    height:70px;
+
+    padding:0;
+
+    border:5px solid #173b43;
+
+    border-radius:12px;
+
+    background:#4CAF50;
+
+    color:white;
+
+    font-family:Arial, sans-serif;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 7px 0 #315c4a;
+
+    transition:
+        transform 0.1s,
+        box-shadow 0.1s,
+        background 0.1s;
+}
+
+
+#startComputerButton:hover{
+
+    background:#43a047;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 0 #315c4a;
+}
+
+
+#startComputerButton:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+        0 2px 0 #315c4a;
+}
+
+@media(max-width:600px){
+
+    .instructionsBox{
+
+        width:92%;
+
+        padding:25px 18px;
+    }
+
+
+    .instructionsBox h1{
+
+        font-size:27px;
+    }
+
+
+    .instructionsSubtitle{
+
+        font-size:14px;
+
+        margin-bottom:20px;
+    }
+
+
+    .controlsList{
+
+        grid-template-columns:1fr;
+
+        gap:10px;
+
+        margin-bottom:22px;
+    }
+
+
+    .control{
+
+        min-height:60px;
+    }
+
+
+    .key{
+
+        height:44px;
+
+        min-width:50px;
+
+        font-size:18px;
+    }
+
+
+    .keyWide{
+
+        min-width:95px;
+
+        font-size:14px;
+    }
+
+
+    #startComputerButton{
+
+        width:200px;
+
+        height:60px;
+
+        font-size:21px;
+    }
+
+}
