@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi Huella en Guayarte</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div id="deviceSelection">
+
+            <div class="deviceBox">
+        
+                <h1>Salvando la plaza Guayarte</h1>
+        
+                <h2>¿Dónde estás jugando?</h2>
+        
+                <div class="deviceButtons">
+                    <button id="computerButton">
+                        💻<br>
+                        Computadora
+                    </button>
+        
+                    <button id="mobileButton">
+                        📱<br>
+                        Dispositivo móvil
+                    </button>
+                </div>
+        
+            </div>
+        
+        </div>
+
+        <canvas id="game"></canvas>
+
+        <div id="mobileControls">
+
+            <div class="movementButtons">
+
+                <button id="leftButton">◀</button>
+                <button id="rightButton">▶</button>
+
+            </div>
+
+            <div class="actionButtons">
+
+                <button id="jumpButton">▲</button>
+                <button id="attackButton">⚔</button>
+                <button id="interactButton">E</button>
+
+            </div>
+
+        </div>
+
+        <audio id="backgroundMusic" loop>
+            <source src="assets/music/guayarte.mp3" type="audio/mpeg">
+        </audio>
+
+        <script src="js/level.js"></script>
+
+        <script src="js/input.js"></script>
+
+        <script src="js/camera.js"></script>
+
+        <script src="js/container.js"></script>
+
+        <script src="js/player/player.js"></script>
+        <script src="js/player/movement.js"></script>
+        <script src="js/player/collision.js"></script>
+        <script src="js/player/animation.js"></script>
+        <script src="js/player/health.js"></script>
+        <script src="js/player/attack.js"></script>
+        <script src="js/player/inventory.js"></script>
+        <script src="js/player/inventoryRender.js"></script>
+        <script src="js/player/depositItems.js"></script>
+        <script src="js/player/render.js"></script>
+        <script src="js/player/debug.js"></script>
+
+        <script src="js/item/item.js"></script>
+        <script src="js/item/render.js"></script>
+
+        <script src="js/enemy/enemy.js"></script>
+        <script src="js/enemy/movement.js"></script>
+        <script src="js/enemy/collision.js"></script>
+        <script src="js/enemy/health.js"></script>
+        <script src="js/enemy/attack.js"></script>
+        <script src="js/enemy/render.js"></script>
+
+        <script src="js/inventory.js"></script>
+
+        <script src="js/levelComplete.js"></script>
+
+        <script src="js/continue.js"></script>
+
+        <script src="js/game.js"></script>
+
+        <div class="ai-credit">
+            Elaborado con apoyo de IA
+        </div>
+
+    </body>
+
+</html>
