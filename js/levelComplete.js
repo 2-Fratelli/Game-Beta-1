@@ -1,4 +1,4 @@
-let gameState = "info";
+let gameState = "playing";
 let levelCompleted = false;
 let continueButton = null;
 let infoImage = new Image();
